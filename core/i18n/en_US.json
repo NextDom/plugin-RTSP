@@ -1,0 +1,107 @@
+{
+    "plugins/RTSP/plugin_info/info.xml": {
+        "Plugin de compatibilité RTSP avec le plugin Caméra": "Plugin de compatibilité RTSP avec le plugin Caméra"
+    },
+    "plugins/RTSP/plugin_info/configuration.php": {
+        "Dépendances : ": "Dependencies :",
+        "Dépendances :": "Dependencies :",
+        "Installer": "Install",
+        "Etes-vous sûr de vouloir installer les dépendances ": "Are you sure you want to install the dependencies",
+        "Installation": "Setup",
+        "Réparer :": "repair",
+        "Forcer l\\'arrêt de tous les services RTSP": "Forcer l\\'arrêt de tous les services RTSP",
+        "Etes-vous sûr de vouloir installer les dépendances ?": "Are you sure you want to install the dependencies",
+        "Etes-vous sûr de vouloir forcer l\\'arrêt la totalité des services RTSP ?": "Etes-vous sûr de vouloir forcer l\\'arrêt la totalité des services RTSP ?",
+        "Reset": "Reset",
+        "Etes-vous sûr de vouloir forcer l'arrêt la totalité des services RTSP ?": "Etes-vous sûr de vouloir forcer l'arrêt la totalité des services RTSP ?",
+        "Forcer l'arrêt de tous les services RTSP": "Forcer l'arrêt de tous les services RTSP"
+    },
+    "plugins/RTSP/desktop/modal/update.RTSP.php": {
+        "Pause": "Pause",
+        "Rechercher": "Search"
+    },
+    "plugins/RTSP/desktop/php/RTSP.php": {
+        "Ajouter un flux": "Ajouter un flux",
+        "Rechercher": "Search",
+        "Mes flux RTSP": "Mes flux RTSP",
+        "Général": "Main",
+        "Nom de l'équipement RTSP": "Nom de l'équipement RTSP",
+        "Objet parent": "Parent object",
+        "Aucun": "None",
+        "Catégorie": "Category",
+        "Activer": "Activate",
+        "Visible": "Visible",
+        "Adresse IP": "IP Address",
+        "Complément url (port:chemin)": "Complément url (port:chemin)",
+        "Nom": "Name",
+        "URL de capture (pour le plugin camera)": "URL de capture (pour le plugin camera)",
+        "Commandes": "Commands",
+        "Type": "Type",
+        "Action": "Action",
+        "Supprimer": "Delete",
+        "Sauvegarder": "Save",
+        "Résolution": "Résolution",
+        "Login": "Login",
+        "Password": "Password",
+        "Port": "Port",
+        "Complément url (chemin)": "Complément url (chemin)",
+        "Nom de la caméra": "camera name",
+        "Délai (en seconde)}</label>\n  <div class=\"col-sm-3\">\n    <input type=\"text\" class=\"eqLogicAttr form-control\" data-l1key=\"configuration\" data-l2key=\"delay\"/>\n  </div>\n</div>\n<div class=\"form-group\">\n  <label class=\"col-sm-3 control-label\">{{Login": "Délai (en seconde)}</label>\n  <div class=\"col-sm-3\">\n    <input type=\"text\" class=\"eqLogicAttr form-control\" data-l1key=\"configuration\" data-l2key=\"delay\"/>\n  </div>\n</div>\n<div class=\"form-group\">\n  <label class=\"col-sm-3 control-label\">{{Login",
+        "Paramètres": "Settings",
+        "Délai (en seconde)}</label>\n\t\t\t\t\t  <div class=\"col-sm-3\">\n\t\t\t\t\t    <input type=\"text\" class=\"eqLogicAttr form-control\" data-l1key=\"configuration\" data-l2key=\"delay\"/>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t  <label class=\"col-sm-3 control-label\">{{Nom d'utilisateur": "Délai (en seconde)}</label>\n\t\t\t\t\t  <div class=\"col-sm-3\">\n\t\t\t\t\t    <input type=\"text\" class=\"eqLogicAttr form-control\" data-l1key=\"configuration\" data-l2key=\"delay\"/>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t  <label class=\"col-sm-3 control-label\">{{Nom d'utilisateur",
+        "Mot de passe": "Password",
+        "Options": "Options",
+        "Délai (en seconde)": "Délai (en seconde)",
+        "Nom d'utilisateur": "Username",
+        "Rafraichissement (s)": "Refresh",
+        "Emplacement des captures": "Emplacement des captures",
+        "/tmp": "/tmp",
+        "Résultat": "Result",
+        "Test": "Test",
+        "Ouvrir la capture (F5 pour raffraîchir)": "Ouvrir la capture (F5 pour raffraîchir)",
+        "Tester": "Test",
+        "Rafraîchir": "Refresh",
+        "Aperçu de la capture": "overview capture",
+        "Status": "Status",
+        "Service Status": "Service Status",
+        "Protocole": "Protocole",
+        "Horodatage": "Horodatage",
+        "Personnalisation": "Personnalisation",
+        "Logs": "Logs"
+    },
+    "plugins/RTSP/desktop/js/RTSP.js": {
+        "Nom": "Name",
+        "Afficher": "Show",
+        "Historiser": "Historize",
+        "Tester": "Test"
+    },
+    "plugins/RTSP/core/class/RTSP.class.php": {
+        "Le champs Nom ne peut contenir de caracteres speciaux": "Le champs Nom ne peut contenir de caracteres speciaux",
+        "Le champs Nom ne peut contenir d'espaces": "Le champs Nom ne peut contenir d'espaces",
+        "Le champs Port ne peut être vide": "Le champs Port ne peut être vide",
+        "Le champs Nom ne peut contenir de caractères spéciaux": "Le champs Nom ne peut contenir de caractères spéciaux",
+        "Le champs Résolution doit être formaté 0000x000": "Le champs Résolution doit être formaté 0000x000",
+        "Le champs Résolution doit être au format nombrexnombre (ex 1280x720)": "Le champs Résolution doit être au format nombrexnombre (ex 1280x720)",
+        "Le champs Port ne peut contenir autre chose que des chiffres": "Le champs Port ne peut contenir autre chose que des chiffres",
+        "Le champs Délai ne peut être vide": "Le champs Délai ne peut être vide",
+        "Le champs Délai ne peut contenir autre chose que des chiffres": "Le champs Délai ne peut contenir autre chose que des chiffres",
+        "Le champs Complément URL ne peut être vide": "Le champs Complément URL ne peut être vide",
+        "Le champs Complément URL doit commencer par un /": "Le champs Complément URL doit commencer par un /",
+        "Le champs Emplacement des captures doit commencer par un /": "Le champs Emplacement des captures doit commencer par un /"
+    },
+    "plugins/RTSP/desktop/modal/reset.RTSP.php": {
+        "Pause": "Pause",
+        "Rechercher": "Search"
+    },
+    "plugins/RTSP/core/ajax/RTSP.ajax.php": {
+        "Aucune methode correspondante à : ": "No methode matches:"
+    },
+    "plugins/RTSP/desktop/modal/status.RTSP.php": {
+        "Pause": "Pause",
+        "Rechercher": "Search"
+    },
+    "plugins/RTSP/desktop/modal/log.RTSP.php": {
+        "Pause": "Pause",
+        "Rechercher": "Rechercher"
+    }
+}

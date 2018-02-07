@@ -1,0 +1,19 @@
+==== 3S IP camera
+|======================
+|Brand    |Models	|Example URL											|Audio
+|3S       |Unknown	|rtsp://IPADDRESS/ca[CHANNEL]/h264								|Possible
+|3S       |N8072 +	|http://IPADDRESS/iage/[CHANNEL].jpg								|No
+|3S       |N8072 +	|http://IPADDRESS/axis-cgi/jpg/video.cgi							|No
+|3S       |N8072 +	|rtsp://IPADDRESS:554/ca[CHANNEL]/h264								|Yes
+|3S       |other +	|rtsp://IPADDRESS/ca1/peg4									|Possible
+|3S       |other +	|rtsp://IPADDRESS/ca2/peg4									|Possible
+|3S       |other +	|rtsp://IPADDRESS/ca3/peg4									|Possible
+|3S       |other +	|rtsp://IPADDRESS/ca4/peg4									|Possible
+|3S       |other +	|http://IPADDRESS/videostrea.asf?user=[USERNAME]&pwd=[PASSWORD]&resolution=[WIDTH]*[HEIGHT]	|Yes
+|3S       |other +	|http://IPADDRESS/iage.jpg									|No
+|3S       |other +	|http://IPADDRESS/current[CHANNEL].jpg								|No
+|3S       |other +	|http://IPADDRESS/cgi-bin/video.jpg								|No
+|3S       |other +	|http://IPADDRESS/axis-cgi/jpg/video.cgi							|No
+|3S       |other +	|http://IPADDRESS/videofeed									|No
+|3S       |other +	|rtsp://IPADDRESS:554/ca[CHANNEL]/h264								|Yes
+|======================

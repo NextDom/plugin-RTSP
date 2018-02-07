@@ -1,0 +1,11 @@
+{
+"id" : "RTSP",
+"name" : "RTSP",
+"licence" : "AGPL",
+"author" : "Slobberbone",
+"require" : "2.2.5",
+"category" : "security",
+"hasDependency" : true,
+"hasOwnDeamon" : false,
+"maxDependancyInstallTime" : 45
+}

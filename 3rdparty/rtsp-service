@@ -1,0 +1,35 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides: rtsp-service-@@name@@
+# Required-Start: $local_fs $syslog $remote_fs
+# Required-Stop: $local_fs $syslog $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: RTSP Daemon for @@name@@
+# Description: Generate Snapshot for Jeedom Camera
+### END INIT INFO
+
+case "$1" in
+    start)
+	    complement=$(echo "@@url@@" | sed 's/[&]/\\&/g')
+            echo "Starting RTSP Daemon for @@name@@..."
+            sh /usr/sbin/rtsp.sh @@protocole@@ @@ip@@ @@targetFolder@@ @@name@@ @@port@@ @@delay@@ $complement @@size@@ @@displayInfo@@ @@login@@ @@password@@ @@log@@
+            echo $! > /run/rtsp-@@name@@.pid
+            ;;
+    stop)
+            echo "Stopping RTSP Daemon for @@name@@..."
+            #pkill -f rtsp.sh
+            kill -9 `cat /run/rtsp-@@name@@.pid`
+            rm /run/rtsp-@@name@@.pid
+            ;;
+    restart)
+            $0 stop
+            sleep 1
+            $0 start
+            ;;
+    *)
+            echo "Usage: $0 {start|stop|restart}"
+            exit 1
+            ;;
+esac

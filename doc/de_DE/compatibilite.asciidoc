@@ -1,0 +1,6 @@
+==== Caméras compatibles
+
+
+include::3S.asciidoc[]
+include::cheapo.asciidoc[]
+include::Xiaomi Xiaoyi.asciidoc[]

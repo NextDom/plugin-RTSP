@@ -1,0 +1,32 @@
+[panel,primary]
+.Est-ce que le plugin peut faire des captures plus régulière ?
+--
+Non, le plugin utilise une commande peu gourmande en ressource, pour celà une capture toute les 2 secondes environ est un bon compromis.
+--
+.Pouquoi modifier l'emplacement des captures ?
+--
+Par défaut, les captures sont faites sur /tmp qui est monté en ram, ceci permet de ne pas user prématurément votre carteSD. Si ce n'est pas le cas chez vous (première Mini+ ou DIY). Voici un tutorial pour monter un dossier en RAM :
+Nous allons creer un point de montage sur /mnt/rtsp.
+
+Il faut créer le dossier :
+
+`sudo mkdir /mnt/rtsp`
+
+Puis il faut changer les droits :
+
+`sudo chmod 777 /mnt/rtsp`
+
+Enfin un tmpfs se monte comme tous les points de montage sous linux,
+avec la commande `mount` :
+
+`sudo mount -t tmpfs -o size=16M tmpfs /mnt/rtsp`
+
+Pour le monter automatiquement au démarrage il faut éditer le fichier
+/etc/fstab et rajouter :
+
+Exemple de ligne à rajouter:
+
+`tmpfs /mnt/rtsp tmpfs defaults,size=16m 0 0`
+
+Enfin, n'oubliez pas de spécifier /mnt/rtsp dans le plugin RTSP !
+--
