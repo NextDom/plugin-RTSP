@@ -113,55 +113,60 @@ class RTSP extends eqLogic
     public function preUpdate()
     {
         if ($this->getConfiguration('ip') == '') {
-            throw new Exception(__('Le champs Adresse IP ne peut être vide', __FILE__));
+            throw new \Exception(__('Le champs Adresse IP ne peut être vide', __FILE__));
         }
         if ($this->getConfiguration('port') == '') {
-            throw new Exception(__('Le champs Port ne peut être vide', __FILE__));
+            throw new \Exception(__('Le champs Port ne peut être vide', __FILE__));
         }
         if (!$this->getConfiguration('delay') == '') {
             if (!preg_match("#[0-9]$#", $this->getConfiguration('delay'))) {
-                throw new Exception(__('Le champs Délai ne peut contenir autre chose que des chiffres', __FILE__));
+                throw new \Exception(__('Le champs Délai ne peut contenir autre chose que des chiffres', __FILE__));
             }
         }
         // Si la chaîne contient des caractères spéciaux
         if (!preg_match("#[0-9]$#", $this->getConfiguration('port'))) {
-            throw new Exception(__('Le champs Port ne peut contenir autre chose que des chiffres', __FILE__));
+            throw new \Exception(__('Le champs Port ne peut contenir autre chose que des chiffres', __FILE__));
         }
         if ($this->getConfiguration('url') == '') {
-            throw new Exception(__('Le champs Complément URL ne peut être vide', __FILE__));
+            throw new \Exception(__('Le champs Complément URL ne peut être vide', __FILE__));
         }
         // Si l'url' ne commence pas par /
         if (substr($this->getConfiguration('url'), 0, 1) !== "/") {
-            throw new Exception(__('Le champs Complément URL doit commencer par un /', __FILE__));
+            throw new \Exception(__('Le champs Complément URL doit commencer par un /', __FILE__));
         }
         // Si l'url' ne commence pas par /
         if ($this->getConfiguration('capturePath') !== '' && substr($this->getConfiguration('capturePath'), 0, 1) !== "/") {
-            throw new Exception(__('Le champs Emplacement des captures doit commencer par un /', __FILE__));
+            throw new \Exception(__('Le champs Emplacement des captures doit commencer par un /', __FILE__));
         }
         if ($this->getConfiguration('name') === '') {
-            throw new Exception(__('Le champs Nom ne peut être vide', __FILE__));
+            throw new \Exception(__('Le champs Nom ne peut être vide', __FILE__));
         }
         // Si la chaîne contient des caractères spéciaux
         if (!preg_match("#[a-zA-Z0-9_-]$#", $this->getConfiguration('name'))) {
-            throw new Exception(__('Le champs Nom ne peut contenir de caractères spéciaux', __FILE__));
+            throw new \Exception(__('Le champs Nom ne peut contenir de caractères spéciaux', __FILE__));
         }
         // Si la chaîne contient des caractères spéciaux
         if (preg_match("/\\s/", $this->getConfiguration('name'))) {
-            throw new Exception(__('Le champs Nom ne peut contenir d\'espaces', __FILE__));
+            throw new \Exception(__('Le champs Nom ne peut contenir d\'espaces', __FILE__));
         }
         if ($this->getConfiguration('size') == '') {
-            throw new Exception(__('Le champs résolution ne peut être vide', __FILE__));
+            throw new \Exception(__('Le champs résolution ne peut être vide', __FILE__));
         }
         // Si la chaîne contient des caractères spéciaux
-        if (!preg_match("#[0-9][0-9][0-9][0-9]x[0-9][0-9][0-9][0-9]$#", $this->getConfiguration('size'))) {
-            if (!preg_match("#[0-9][0-9][0-9]x[0-9][0-9][0-9][0-9]$#", $this->getConfiguration('size'))) {
-                if (!preg_match("#[0-9][0-9][0-9]x[0-9][0-9][0-9]$#", $this->getConfiguration('size'))) {
-                    if (!preg_match("#[0-9][0-9][0-9][0-9]x[0-9][0-9][0-9]$#", $this->getConfiguration('size'))) {
-                        throw new Exception(__('Le champs Résolution doit être au format nombrexnombre (ex 1280x720)', __FILE__));
+        if (!preg_match($this->pregMatchPaternConfiguration(), $this->getConfiguration('size'))) {
+            if (!preg_match($this->pregMatchPaternConfiguration(), $this->getConfiguration('size'))) {
+                if (!preg_match($this->pregMatchPaternConfiguration(), $this->getConfiguration('size'))) {
+                    if (!preg_match($this->pregMatchPaternConfiguration(), $this->getConfiguration('size'))) {
+                        throw new \Exception(__('Le champs Résolution doit être au format nombrexnombre (ex 1280x720)', __FILE__));
                     }
                 }
             }
         }
+    }
+
+    private function pregMatchPaternConfiguration()
+    {
+        return "#[0-9][0-9][0-9][0-9]x[0-9][0-9][0-9][0-9]$#";
     }
 
     public function preSave()
@@ -251,11 +256,11 @@ class RTSPCmd extends cmd
     /*     * *********************Methode d'instance************************* */
 
     public function execute($_options = null)
-    {   
+    {
         $name = $this->getConfiguration('name');
 
         $state = exec("/etc/init.d/rtsp-service-$name status");
- 
+
         if (is_object($state)) {
             return $state;
         } else {
