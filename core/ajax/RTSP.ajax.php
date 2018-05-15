@@ -18,40 +18,39 @@
  */
 
 try {
-    require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+    require_once __DIR__ . '/../../../../core/php/core.inc.php';
     include_file('core', 'authentification', 'php');
 
     if (!isConnect('admin')) {
-        throw new Exception(__('401 - Accès non autorisé', __FILE__));
+        throw new \Exception(__('401 - Accès non autorisé', __FILE__));
     }
     if (init('action') == 'updateRTSP') {
-    	RTSP::updateRTSP();
+        RTSP::updateRTSP();
         ajax::success();
     }
 
     if (init('action') == 'resetRTSP') {
-    	RTSP::resetRTSP();
+        RTSP::resetRTSP();
         ajax::success();
     }
 
     if (init('action') == 'statusRTSP') {
-      RTSP::statusRTSP(init('serviceName'));
+        RTSP::statusRTSP(init('serviceName'));
         ajax::success();
     }
 
     if (init('action') == 'followLinksRTSP') {
-      RTSP::followLinksRTSP(init('serviceName'));
+        RTSP::followLinksRTSP(init('serviceName'));
         ajax::success();
     }
 
     if (init('action') == 'logRTSP') {
-      RTSP::logRTSP(init('serviceName'),init('folderLog'));
+        RTSP::logRTSP(init('serviceName'), init('folderLog'));
         ajax::success();
     }
 
-    throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
-    /*     * *********Catch exeption*************** */
-} catch (Exception $e) {
-    ajax::error(displayException($e), $e->getCode());
+    throw new \Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
+} catch (\Exception $e) {
+    ajax::error(display\Exception($e), $e->getCode());
 }
-?>
+ 
