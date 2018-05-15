@@ -18,14 +18,14 @@
  */
 
 /* * ***************************Includes********************************* */
-require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+require_once __DIR__ . '/../../../../core/php/core.inc.php';
 
 class RTSP extends eqLogic
 {
 
-    public static function pull($_eqLogic_id = null)
+    public static function pull($eqLogicId = null)
     {
-        if (self::$_eqLogics == null) {
+        if (self::$_eqLogics === null) {
             self::$_eqLogics = self::byType('RTSP');
         }
     }
@@ -58,8 +58,6 @@ class RTSP extends eqLogic
         passthru('/bin/bash ' . $resource_path . '/install.sh ' . $resource_path . ' > ' . log::getPathToLog('RTSP_dep') . ' 2>&1 &');
     }
 
-    /*     * ***********************Methode static*************************** */
-
     public static function updateRTSP()
     {
         log::remove('RTSP_update');
@@ -87,7 +85,7 @@ class RTSP extends eqLogic
     public static function statusRTSP($serviceName)
     {
         log::remove('RTSP_status');
-        $cmd = '/bin/bash ' . dirname(__FILE__) . '/../../3rdparty/status.sh ' . $serviceName;
+        $cmd = '/bin/bash ' . __DIR__ . '/../../3rdparty/status.sh ' . $serviceName;
         $cmd .= ' >> ' . log::getPathToLog('RTSP_status') . ' 2>&1 &';
         exec($cmd);
     }
@@ -95,12 +93,10 @@ class RTSP extends eqLogic
     public static function logRTSP($serviceName, $folderLog)
     {
         log::remove('RTSP_log');
-        $cmd = '/bin/bash ' . dirname(__FILE__) . '/../../3rdparty/log.sh ' . $serviceName . ' ' . $folderLog;
+        $cmd = '/bin/bash ' . __DIR__ . '/../../3rdparty/log.sh ' . $serviceName . ' ' . $folderLog;
         $cmd .= ' >> ' . log::getPathToLog('RTSP_log') . ' 2>&1 &';
         exec($cmd);
     }
-
-    /*     * *********************Methode d'instance************************* */
 
     /* 	public function postInsert() {
       $this->setCategory('securite', 1);
@@ -165,6 +161,10 @@ class RTSP extends eqLogic
         }
     }
 
+    /**
+     * 
+     * @return string
+     */
     private function pregMatchPaternConfiguration()
     {
         return "#[0-9][0-9][0-9][0-9]x[0-9][0-9][0-9][0-9]$#";
@@ -227,6 +227,10 @@ class RTSP extends eqLogic
         exec($cmd);
     }
 
+    /**
+     * 
+     * @return string|object
+     */
     public function getInformations()
     {
 
@@ -254,7 +258,6 @@ class RTSP extends eqLogic
 
 class RTSPCmd extends cmd
 {
-    /*     * *********************Methode d'instance************************* */
 
     public function execute($_options = null)
     {
