@@ -8,7 +8,7 @@
 
 # Changelog
 
-### Version 1.2.0:  (**_date_**)
+### Version 2.0.0:  (**[2.0.0](https://github.com/NextDom/plugin-RTSP/releases/tag/2.0.0)**)
 
 * Correction "DisplayException"
 * Migration de la documentation vers GitHub
