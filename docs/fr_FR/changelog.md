@@ -1,6 +1,6 @@
 # Idées pour de futures releases
 
-~~chapitre à garder seulement pour les idées sur lesquelles aucun développement n'est prévu actuellement~~
+[Prochains développements](https://github.com/NextDom/plugin-RTSP/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 
 # Prochaine release
 
@@ -8,28 +8,22 @@
 
 # Changelog
 
-### Version 1.2.0:  (**_date_** - Version en cours sur le market)
+### Version 1.2.0:  (**_date_**)
 
-* Modification 1
+* Correction "DisplayException"
+* Migration de la documentation vers GitHub
+* Ajout de la licence en en-tête de chaque fichiers
+* Correction concernant l'état du service lié à un équipement en fonction de son état
+* Mise aux normes NextDom (Standard PSR, Icone, template de documentation, licence, readme, etc ...)
+* Ajout d'un changelog
 
-### Version 1.1.1:  (**_date_** ~~ex: 31 Mai 2017~~)
-
-* Modification 1
-* Modification 2
-
-### Version 1.1.0:  (**_date_**)
-
-* Modification 1
-* Modification 2
-* Modification 3
 
 ### Détail des changements
 
-Détail complet des mises à jour sur [Historique Commit](https://github.com/NextDom/plugin-ExtraTemplate/commits/master)
+Détail complet des mises à jour sur [Historique Commit](https://github.com/NextDom/plugin-RTSP/commits/master)
 
 # Bug
 
 En cas de problèmes avec ce plugin il est possible d'ouvrir un ticket pour demander une correction :
 
-[https://github.com/NextDom/plugin-ExtraTemplate/issues](https://github.com/NextDom/plugin-ExtraTemplate/issues)
-~~Remplacer le lien vers le bugtracker du plugin~~
+[https://github.com/NextDom/plugin-RTSP/issues](https://github.com/NextDom/plugin-RTSP/issues)

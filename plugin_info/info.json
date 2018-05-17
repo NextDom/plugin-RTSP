@@ -1,11 +1,13 @@
 {
 "id" : "RTSP",
 "name" : "RTSP",
-"licence" : "AGPL",
-"author" : "Slobberbone",
+"licence" : "GPL",
+"author" : "NextDom (Slobberbone)",
 "require" : "2.2.5",
 "category" : "security",
 "hasDependency" : true,
 "hasOwnDeamon" : false,
-"maxDependancyInstallTime" : 45
+"maxDependancyInstallTime" : 45,
+"changelog": "https://nextdom.github.io/plugin-RTSP/#language#/changelog",
+"documentation": "https://nextdom.github.io/plugin-RTSP/#language#/"
 }
