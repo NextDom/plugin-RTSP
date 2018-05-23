@@ -22,7 +22,10 @@ require_once __DIR__ . '/../../../../core/php/core.inc.php';
 
 class RTSP extends eqLogic
 {
-
+    /**
+     * 
+     * @param type $eqLogicId
+     */
     public static function pull($eqLogicId = null)
     {
         if (self::$_eqLogics === null) {
@@ -30,6 +33,10 @@ class RTSP extends eqLogic
         }
     }
 
+    /**
+     * 
+     * @return string
+     */
     public static function dependancy_info()
     {
         $return                  = array();
@@ -51,17 +58,20 @@ class RTSP extends eqLogic
         return $return;
     }
 
+    /**
+     * 
+     */
     public static function dependancy_install()
     {
         log::add('RTSP', 'info', 'Installation des dépéndances ffmpeg et libav-tools');
-        $resource_path = realpath(dirname(__FILE__) . '/../../3rdparty');
+        $resource_path = realpath(__DIR__ . '/../../3rdparty');
         passthru('/bin/bash ' . $resource_path . '/install.sh ' . $resource_path . ' > ' . log::getPathToLog('RTSP_dep') . ' 2>&1 &');
     }
 
     public static function updateRTSP()
     {
         log::remove('RTSP_update');
-        $cmd = '/bin/bash ' . dirname(__FILE__) . '/../../3rdparty/install.sh';
+        $cmd = '/bin/bash ' . __DIR__ . '/../../3rdparty/install.sh';
         $cmd .= ' >> ' . log::getPathToLog('RTSP_update') . ' 2>&1 &';
         exec($cmd);
     }
@@ -69,7 +79,7 @@ class RTSP extends eqLogic
     public static function resetRTSP()
     {
         log::remove('RTSP_reset');
-        $cmd = '/bin/bash ' . dirname(__FILE__) . '/../../3rdparty/reset.sh';
+        $cmd = '/bin/bash ' . __DIR__ . '/../../3rdparty/reset.sh';
         $cmd .= ' >> ' . log::getPathToLog('RTSP_reset') . ' 2>&1 &';
         exec($cmd);
     }
@@ -77,7 +87,7 @@ class RTSP extends eqLogic
     public static function followLinksRTSP()
     {
         log::remove('RTSP_followLinks');
-        $cmd = '/bin/bash ' . dirname(__FILE__) . '/../../3rdparty/addsymblinkstoapache.sh';
+        $cmd = '/bin/bash ' . __DIR__ . '/../../3rdparty/addsymblinkstoapache.sh';
         $cmd .= ' >> ' . log::getPathToLog('RTSP_followLinks') . ' 2>&1 &';
         exec($cmd);
     }
@@ -100,13 +110,17 @@ class RTSP extends eqLogic
 
     /* 	public function postInsert() {
       $this->setCategory('securite', 1);
-      $cmd = '/bin/bash ' .dirname(__FILE__) . '/../../3rdparty/create.sh ' . $this->getConfiguration('name') . ' ' . $this->getConfiguration('ip') . ' ' . $this->getConfiguration('path');
+      $cmd = '/bin/bash ' .__DIR__ . '/../../3rdparty/create.sh ' . $this->getConfiguration('name') . ' ' . $this->getConfiguration('ip') . ' ' . $this->getConfiguration('path');
       $cmd .= ' >> ' . log::getPathToLog('RTSP_create') . ' 2>&1 &';
       exec('echo Name : ' . $this->getConfiguration('name') . ' IP : ' . $this->getConfiguration('ip') . ' URL : ' . $this->getConfiguration('url') . ' >> ' . log::getPathToLog('RTSP_create') . ' 2>&1 &');
       exec($cmd);
       $this->setConfiguration('cameraPath','snapshot_' . $this->getConfiguration('name') . '.jpg');
       } */
 
+    /**
+     * 
+     * @throws \Exception
+     */
     public function preUpdate()
     {
         if ($this->getConfiguration('ip') == '') {
@@ -149,10 +163,11 @@ class RTSP extends eqLogic
         if ($this->getConfiguration('size') == '') {
             throw new \Exception(__('Le champs résolution ne peut être vide', __FILE__));
         }
-
     }
 
-
+    /**
+     * 
+     */
     public function preSave()
     {
         if ($this->getConfiguration('delay') == '') {
@@ -179,6 +194,9 @@ class RTSP extends eqLogic
         $this->setConfiguration('folderLog', $this->getConfiguration('targetFolder'));
     }
 
+    /**
+     * 
+     */
     public function postSave()
     {
         foreach (eqLogic::byType('RTSP') as $RTSP) {
@@ -202,6 +220,9 @@ class RTSP extends eqLogic
         }
     }
 
+    /**
+     * 
+     */
     public function preRemove()
     {
         $cmd = '/bin/bash ' . dirname(__FILE__) . '/../../3rdparty/delete.sh ' . $this->getConfiguration('name');
@@ -218,7 +239,6 @@ class RTSP extends eqLogic
     {
 
         foreach ($this->getCmd() as $cmd) {
-            $ip   = $this->getConfiguration('ip');
             $name = $this->getConfiguration('name');
             $sudo = exec("\$EUID");
 
@@ -241,8 +261,12 @@ class RTSP extends eqLogic
 
 class RTSPCmd extends cmd
 {
-
-    public function execute($_options = null)
+    /**
+     * 
+     * @param type $options
+     * @return string
+     */
+    public function execute($options = null)
     {
         $name = $this->getConfiguration('name');
 
