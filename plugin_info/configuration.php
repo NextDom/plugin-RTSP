@@ -59,7 +59,7 @@ if (!isConnect()) {
       </div>
       <label class="col-sm-2 control-label">{{Aide :}}</label>
       <div class="col-sm-4">
-        <a class="btn btn-success" href="/plugins/RTSP/doc/fr_FR/index.html"><i class="fa fa-question-circle"></i> {{Documentation locale}}</a>
+        <a class="btn btn-success" href="/plugins/RTSP/docs/fr_FR/index.html"><i class="fa fa-question-circle"></i> {{Documentation locale}}</a>
       </div>
     </div>
   </div>
