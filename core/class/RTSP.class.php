@@ -216,7 +216,7 @@ class RTSP extends eqLogic
      */
     public function getInformations()
     {
-
+        $state = null;
         foreach ($this->getCmd() as $cmd) {
             $ip   = $this->getConfiguration('ip');
             $name = $this->getConfiguration('name');
