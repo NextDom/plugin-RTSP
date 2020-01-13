@@ -43,8 +43,8 @@ if [ $9 -eq 1 ]
 then
   datetime=$(echo $(date +%Y-%m-%dT%H\\:%M\\:%S))
   displayInfo="drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf: text='$datetime': fontcolor=black@0.8: x=50: y=60"
-  /usr/bin/avconv -i $1://$url$2:$5$complement -s $8 -frames:v 1  -an -vf "$displayInfo" -y $3/snapshot_$4.jpg > $3/$4.log 2>&1
+  /usr/bin/ffmpeg -i $1://$url$2:$5$complement -s $8 -frames:v 1  -an -vf "$displayInfo" -y $3/snapshot_$4.jpg > $3/$4.log 2>&1
 else
-  /usr/bin/avconv -i $1://$url$2:$5$complement -s $8 -frames:v 1  -an -y $3/snapshot_$4.jpg > $3/$4.log 2>&1
+  /usr/bin/ffmpeg -i $1://$url$2:$5$complement -s $8 -frames:v 1  -an -y $3/snapshot_$4.jpg > $3/$4.log 2>&1
 fi
 done
