@@ -32,7 +32,15 @@ echo "##########################################################################
 echo 5 > /tmp/RTSP_dep
 $sudo_prefix apt-get update
 echo 25 > /tmp/RTSP_dep
-$sudo_prefix apt-get -y install libav-tools
+$sudo_prefix apt-get -y install tar wget
+wget https://libav.org/releases/libav-12.3.tar.xz
+tar xf libav-12.3.tar.xz
+cd libav-12.3
+./configure
+./make
+$sudo_prefix make install
+cd /usr/bin
+$sudo_prefix ln -s ../local/bin/avconv avconv
 echo 50 > /tmp/RTSP_dep
 
 echo "############################################################################"
@@ -40,6 +48,9 @@ echo "# Linking scripts"
 echo "############################################################################"
 $sudo_prefix ln -s $(dirname "$0")/rtsp.sh /usr/sbin/rtsp.sh
 $sudo_prefix chmod 777 $(dirname "$0")/rtsp.sh
+$sudo_prefix ln -s $(dirname "$0")/rtsp-wd.sh /usr/sbin/rtsp-wd.sh
+$sudo_prefix chmod 777 $(dirname "$0")/rtsp-wd.sh
+
 echo 75 > /tmp/RTSP_dep
 
 echo "############################################################################"

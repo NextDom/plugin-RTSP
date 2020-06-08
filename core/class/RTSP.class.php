@@ -42,14 +42,14 @@ class RTSP extends eqLogic
         $return                  = array();
         $return['log']           = 'RTSP_dep';
         $return['progress_file'] = '/tmp/RTSP_dep';
-        $avconv                  = '/usr/bin/avconv';
+        $ffmpeg                  = '/usr/bin/ffmpeg';
         $rtsp                    = '/usr/sbin/rtsp.sh';
         $return['progress_file'] = '/tmp/RTSP_dep';
-        if (is_file($avconv) && is_file($rtsp)) {
+        if (is_file($ffmpeg) && is_file($rtsp)) {
             $return['state'] = 'ok';
         } else {
-            if (!is_file($avconv)) {
-                exec('echo Avconv binary dependency not found : ' . $avconv . ' > ' . log::getPathToLog('RTSP_log') . ' 2>&1 &');
+            if (!is_file($ffmpeg)) {
+                exec('echo ffmpeg binary dependency not found : ' . $ffmpeg . ' > ' . log::getPathToLog('RTSP_log') . ' 2>&1 &');
             } else {
                 exec('echo RSTP script dependency not found : ' . $rtsp . ' > ' . log::getPathToLog('RTSP_log') . ' 2>&1 &');
             }
