@@ -48,6 +48,9 @@ echo "# Linking scripts"
 echo "############################################################################"
 $sudo_prefix ln -s $(dirname "$0")/rtsp.sh /usr/sbin/rtsp.sh
 $sudo_prefix chmod 777 $(dirname "$0")/rtsp.sh
+$sudo_prefix ln -s $(dirname "$0")/rtsp-wd.sh /usr/sbin/rtsp-wd.sh
+$sudo_prefix chmod 777 $(dirname "$0")/rtsp-wd.sh
+
 echo 75 > /tmp/RTSP_dep
 
 echo "############################################################################"

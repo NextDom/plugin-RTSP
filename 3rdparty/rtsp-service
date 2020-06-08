@@ -30,13 +30,17 @@ case "$1" in
 	    complement=$(echo "@@url@@" | sed 's/[&]/\\&/g')
             echo "Starting RTSP Daemon for @@name@@..."
             sh /usr/sbin/rtsp.sh @@protocole@@ @@ip@@ @@targetFolder@@ @@name@@ @@port@@ @@delay@@ $complement @@size@@ @@displayInfo@@ @@login@@ @@password@@ @@log@@
-            echo $! > /run/rtsp-@@name@@.pid
+	    echo $! > /run/rtsp-@@name@@.pid
+	    sh /usr/sbin/rtsp-wd.sh @@name@@ @@delay@@ @@log@@
+	    echo $! > /run/rtsp-wd-@@name@@.pid
             ;;
     stop)
             echo "Stopping RTSP Daemon for @@name@@..."
             #pkill -f rtsp.sh
             kill -9 `cat /run/rtsp-@@name@@.pid`
             rm /run/rtsp-@@name@@.pid
+            kill -9 `cat /run/rtsp-wd-@@name@@.pid`
+	    rm /run/rtsp-wd-@@name@@.pid
             ;;
     restart)
             $0 stop
